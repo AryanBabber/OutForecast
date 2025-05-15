@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.outforecast.Controller"
+            style="-fx-background-color: linear-gradient(to bottom, #87CEEB, #1E90FF);">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <top>
+        <HBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="cityInput" promptText="Enter city name" prefWidth="350">
+                <font>
+                    <Font name="Segoe UI" size="14"/>
+                </font>
+            </TextField>
+            <Button text="Search" onAction="#handleSearch">
+                <font>
+                    <Font name="Segoe UI" size="14"/>
+                </font>
+            </Button>
+            <Region HBox.hgrow="ALWAYS"/>
+            <ToggleButton fx:id="unitToggle" text="°C" onAction="#handleUnitToggle">
+                <font>
+                    <Font name="Segoe UI" size="14"/>
+                </font>
+            </ToggleButton>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox fx:id="weatherInfoBox" alignment="CENTER" spacing="15" visible="false">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label fx:id="locationLabel" textFill="WHITE">
+                <font>
+                    <Font name="Segoe UI" size="24"/>
+                </font>
+            </Label>
+
+            <ImageView fx:id="weatherIcon" fitHeight="100" fitWidth="100"/>
+
+            <Label fx:id="temperatureLabel" textFill="WHITE">
+                <font>
+                    <Font name="Segoe UI" size="36"/>
+                </font>
+            </Label>
+
+            <Label fx:id="conditionLabel" textFill="WHITE">
+                <font>
+                    <Font name="Segoe UI" size="18"/>
+                </font>
+            </Label>
+
+            <VBox alignment="CENTER_LEFT" spacing="8"
+                  style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 10;">
+                <padding>
+                    <Insets top="15" right="15" bottom="15" left="15"/>
+                </padding>
+
+                <Label fx:id="humidityLabel" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="16"/>
+                    </font>
+                </Label>
+
+                <Label fx:id="windLabel" textFill="WHITE">
+                    <font>
+                        <Font name="Segoe UI" size="16"/>
+                    </font>
+                </Label>
+            </VBox>
+        </VBox>
+    </center>
+
+    <bottom>
+        <Label fx:id="statusLabel" text="Enter a city name to check the weather"
+               textFill="WHITE" alignment="CENTER">
+            <font>
+                <Font name="Segoe UI" size="14"/>
+            </font>
+            <BorderPane.margin>
+                <Insets top="15"/>
+            </BorderPane.margin>
+        </Label>
+    </bottom>
+</BorderPane>
